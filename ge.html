@@ -5,14 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>სტუმარ-მასპინძელი</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f6f8; color: #333; }
-        .lang-bar { background-color: #2c3e50; padding: 15px; text-align: right; position: sticky; top: 0; }
-        .lang-bar a { color: white; text-decoration: none; margin-left: 10px; padding: 8px 15px; border: 1px solid white; border-radius: 5px; font-weight: bold; }
-        .lang-bar a:hover, .lang-bar a.active { background-color: white; color: #2c3e50; }
-        .container { max-width: 850px; margin: 30px auto; padding: 0 15px; }
-        .post { background: white; padding: 25px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
-        .post img { max-width: 100%; height: auto; border-radius: 5px; }
-        .post h2 { color: #2c3e50; margin-top: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #222;
+        }
+        .lang-bar {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: right;
+        }
+        .lang-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 10px;
+            padding: 8px 14px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .lang-bar a:hover,
+        .lang-bar a.active {
+            background-color: #ffffff;
+            color: #2c3e50;
+        }
+        .content {
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+        .post {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .post:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .post h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
@@ -23,24 +68,37 @@
         <a href="ar.html">العربية</a>
     </div>
 
-    <div class="container" id="posts">იტვირთება...</div>
+    <div class="content">
+        <h1>სტუმარ-მასპინძელი</h1>
+        <div id="ge-posts">იტვირთება...</div>
+    </div>
 
     <script>
-        function loadPosts(data) {
-            const container = document.getElementById('posts');
-            container.innerHTML = '';
-            const entries = data.feed.entry || [];
+        function loadGeorgian(data) {
+            var box = document.getElementById('ge-posts');
+            var entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
+
             if (entries.length === 0) {
-                container.innerHTML = '<div class="post"><h2>მოგესალმებით - სტუმარ-მასპინძელი</h2><p>პოსტები ჯერ არ არის.</p></div>';
+                box.innerHTML = '<p>პოსტები ჯერ არ არის.</p>';
                 return;
             }
-            entries.forEach(entry => {
-                const title = entry.title.$t;
-                const content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
-                container.innerHTML += `<div class="post"><h2>${title}</h2><div>${content}</div></div>`;
-            });
+
+            var html = '';
+            for (var i = 0; i < entries.length; i++) {
+                var item = entries[i];
+                var title = item.title && item.title.$t ? item.title.$t : 'უსათაურო';
+                var body = '';
+                if (item.content && item.content.$t) {
+                    body = item.content.$t;
+                } else if (item.summary && item.summary.$t) {
+                    body = item.summary.$t;
+                }
+                html += '<div class="post"><h2>' + title + '</h2><div>' + body + '</div></div>';
+            }
+            box.innerHTML = html;
         }
     </script>
-    <script src="https://stumar-maspinzeli21.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadPosts"></script>
+    <script src="https://stumar-maspinzeli21.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadGeorgian"></script>
+
 </body>
 </html>
