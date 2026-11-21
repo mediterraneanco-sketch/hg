@@ -5,35 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Host and Guest</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; }
-        .lang-bar { background-color: #2c3e50; padding: 15px; text-align: right; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f6f8; color: #333; }
+        .lang-bar { background-color: #2c3e50; padding: 15px; text-align: right; position: sticky; top: 0; z-index: 100; }
         .lang-bar a { 
             color: white; 
             text-decoration: none; 
-            margin-left: 15px; 
+            margin-left: 12px; 
             padding: 8px 15px; 
             border: 1px solid white; 
             border-radius: 5px; 
             font-weight: bold;
         }
-        .lang-bar a:hover { background-color: white; color: #2c3e50; }
-        .content { max-width: 800px; margin: 40px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .lang-bar a:hover, .lang-bar a.active { background-color: white; color: #2c3e50; }
+        .content { max-width: 850px; margin: 35px auto; padding: 25px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+        .post { border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 25px; }
+        .post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .post img { max-width: 100%; height: auto; border-radius: 5px; }
+        .post h2 { color: #2c3e50; margin-top: 0; }
     </style>
 </head>
 <body>
 
     <!-- ენების გადამრთველი პანელი -->
     <div class="lang-bar">
-        <a href="index.html">English</a>
+        <a href="index.html" class="active">English</a>
         <a href="ge.html">ქართული</a>
         <a href="ar.html">العربية</a>
     </div>
 
-    <!-- მთავარი ტექსტი (ინგლისურად) -->
+    <!-- მთავარი ბლოკი -->
     <div class="content">
         <h1>Welcome to Host and Guest</h1>
-        <p>Write your English content here...</p>
+        <div id="posts">Loading posts...</div>
     </div>
+
+    <script>
+        function loadPosts(data) {
+            const container = document.getElementById('posts');
+            container.innerHTML = '';
+            const entries = data.feed.entry || [];
+            if (entries.length === 0) {
+                container.innerHTML = '<div class="post"><p>No posts found yet.</p></div>';
+                return;
+            }
+            entries.forEach(entry => {
+                const title = entry.title.$t;
+                const content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
+                container.innerHTML += `<div class="post"><h2>${title}</h2><div>${content}</div></div>`;
+            });
+        }
+    </script>
+    <script src="https://hostandguest21.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadPosts"></script>
 
 </body>
 </html>
