@@ -70,12 +70,12 @@
 
     <div class="content">
         <h1>სტუმარ-მასპინძელი</h1>
-        <div id="ge-posts">იტვირთება...</div>
+        <div id="posts">იტვირთება პოსტები...</div>
     </div>
 
     <script>
-        function loadGeorgian(data) {
-            var box = document.getElementById('ge-posts');
+        function loadGeorgianFromBlog(data) {
+            var box = document.getElementById('posts');
             var entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
 
             if (entries.length === 0) {
@@ -86,7 +86,7 @@
             var html = '';
             for (var i = 0; i < entries.length; i++) {
                 var item = entries[i];
-                var title = item.title && item.title.$t ? item.title.$t : 'უსათაურო';
+                var title = item.title && item.title.$t ? item.title.$t : 'უსათაურო პოსტი';
                 var body = '';
                 if (item.content && item.content.$t) {
                     body = item.content.$t;
@@ -98,7 +98,7 @@
             box.innerHTML = html;
         }
     </script>
-    <script src="https://stumar-maspinzeli21.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadGeorgian"></script>
+    <script src="https://hostandguest21.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadGeorgianFromBlog"></script>
 
 </body>
 </html>
