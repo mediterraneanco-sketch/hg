@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Host and Guest</title>
+    <title>სტუმარ-მასპინძელი</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,6 +49,11 @@
             margin-bottom: 0;
             padding-bottom: 0;
         }
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
         .post h2 {
             color: #2c3e50;
             margin-top: 0;
@@ -58,24 +63,42 @@
 <body>
 
     <div class="lang-bar">
-        <a href="index.html" class="active">English</a>
-        <a href="ge.html">ქართული</a>
+        <a href="index.html">English</a>
+        <a href="ge.html" class="active">ქართული</a>
         <a href="ar.html">العربية</a>
     </div>
 
     <div class="content">
-        <h1>Welcome to Host and Guest</h1>
-
-        <div class="post">
-            <h2>About Us</h2>
-            <p>Welcome to Host and Guest — a space created to connect hosts and travelers with warmth, trust, and clear information.</p>
-        </div>
-
-        <div class="post">
-            <h2>Information & Guidance</h2>
-            <p>Add your English details, rules, recommendations, or contact information here.</p>
-        </div>
+        <h1>სტუმარ-მასპინძელი</h1>
+        <div id="ge-posts">იტვირთება...</div>
     </div>
+
+    <script>
+        function loadGeorgian(data) {
+            var box = document.getElementById('ge-posts');
+            var entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
+
+            if (entries.length === 0) {
+                box.innerHTML = '<p>პოსტები ჯერ არ არის.</p>';
+                return;
+            }
+
+            var html = '';
+            for (var i = 0; i < entries.length; i++) {
+                var item = entries[i];
+                var title = item.title && item.title.$t ? item.title.$t : 'უსათაურო';
+                var body = '';
+                if (item.content && item.content.$t) {
+                    body = item.content.$t;
+                } else if (item.summary && item.summary.$t) {
+                    body = item.summary.$t;
+                }
+                html += '<div class="post"><h2>' + title + '</h2><div>' + body + '</div></div>';
+            }
+            box.innerHTML = html;
+        }
+    </script>
+    <script src="https://stumar-maspinzeli21.blogspot.com/feeds/posts/default?alt=json-in-script&callback=loadGeorgian"></script>
 
 </body>
 </html>
