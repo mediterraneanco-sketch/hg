@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المضيف والضيف</title>
+    <title>الضيف والمضيف</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -410,8 +410,8 @@
     <header class="header">
         <div class="header-inner">
             <a href="ar.html" class="brand">
-                <img src="image-53.jpg" alt="المضيف والضيف">
-                <span>المضيف والضيف</span>
+                <img src="image-53.jpg" alt="الضيف والمضيف">
+                <span>الضيف والمضيف</span>
             </a>
             <nav class="nav" aria-label="التنقل">
                 <a href="https://chargali-legacy.blogspot.com/?m=1" target="_blank" rel="noopener" class="main-btn">الصفحة الرئيسية</a>
@@ -429,7 +429,7 @@
         <section class="hero-card">
             <div class="hero-body">
                 <span class="badge">النسخة العربية</span>
-                <h1>المضيف والضيف</h1>
+                <h1>الضيف والمضيف</h1>
                 <div class="actions">
                     <a href="#text-feed" class="btn btn-primary">قراءة النص</a>
                     <a href="https://chargali-legacy.blogspot.com/?m=1" target="_blank" rel="noopener" class="btn btn-amber">الصفحة الرئيسية</a>
@@ -437,7 +437,7 @@
                 </div>
             </div>
             <div class="hero-photo">
-                <img src="1783170221180.png" alt="المضيف والضيف">
+                <img src="1783170221180.png" alt="الضيف والمضيف">
             </div>
         </section>
 
@@ -520,12 +520,12 @@
             container.innerHTML = '';
             const entries = (data && data.feed && data.feed.entry) ? data.feed.entry : [];
             if (entries.length === 0) {
-                container.innerHTML = '<article class="post"><h2>مرحبا بكم في المضيف والضيف</h2><p>لا توجد منشورات بعد.</p></article>';
+                container.innerHTML = '<article class="post"><h2>الضيف والمضيف</h2><p>لا توجد منشورات بعد.</p></article>';
                 return;
             }
             entries.forEach(entry => {
-                const rawTitle = entry.title && entry.title.$t ? entry.title.$t : 'المضيف والضيف';
-                const title = keepOnlyArabic(rawTitle) || 'المضيف والضيف';
+                const rawTitle = entry.title && entry.title.$t ? entry.title.$t : 'الضيف والمضيف';
+                const title = keepOnlyArabic(rawTitle) || 'الضيف والمضيف';
                 const content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
                 container.innerHTML += `<article class="post"><h2>${title}</h2><div>${content}</div></article>`;
             });
@@ -543,7 +543,7 @@
                     var email = document.getElementById('cEmail').value.trim();
                     var msg = document.getElementById('cMessage').value.trim();
 
-                    var subject = encodeURIComponent('المضيف والضيف — ' + name);
+                    var subject = encodeURIComponent('الضيف والمضيف — ' + name);
                     var body = encodeURIComponent('الاسم: ' + name + '\nالبريد الإلكتروني: ' + email + '\n\n' + msg);
                     var mailtoUrl = 'mailto:chargalilegacy@gmail.com?subject=' + subject + '&body=' + body;
 
