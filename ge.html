@@ -45,7 +45,7 @@
         }
 
         .header-inner {
-            max-width: 1020px;
+            max-width: 1040px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
@@ -82,9 +82,9 @@
         .nav a {
             color: #ffffff;
             text-decoration: none;
-            font-size: 0.86rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            padding: 7px 13px;
+            padding: 7px 12px;
             border-radius: 9px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             transition: all 0.2s ease;
@@ -98,7 +98,7 @@
         }
 
         .nav a.main-btn {
-            background: rgba(176, 125, 59, 0.25);
+            background: rgba(176, 125, 59, 0.28);
             border-color: #e3b778;
         }
 
@@ -109,8 +109,8 @@
         }
 
         .wrap {
-            max-width: 1020px;
-            margin: 26px auto;
+            max-width: 1040px;
+            margin: 26px auto 40px;
             padding: 0 18px;
         }
 
@@ -121,7 +121,7 @@
             box-shadow: var(--shadow);
             overflow: hidden;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1.15fr 0.85fr;
         }
 
         .hero-body {
@@ -145,7 +145,7 @@
 
         .hero-body h1 {
             margin: 0 0 14px;
-            font-size: clamp(1.75rem, 3vw, 2.3rem);
+            font-size: clamp(1.75rem, 3vw, 2.35rem);
             color: var(--forest-dark);
             line-height: 1.25;
         }
@@ -161,9 +161,9 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 18px;
+            padding: 10px 17px;
             border-radius: 10px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             text-decoration: none;
             border: none;
@@ -216,8 +216,8 @@
         .photo-grid {
             margin-top: 18px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
         }
 
         .photo-tile {
@@ -230,7 +230,7 @@
 
         .photo-tile img {
             width: 100%;
-            height: 135px;
+            height: 165px;
             object-fit: cover;
             display: block;
         }
@@ -242,6 +242,19 @@
             border-radius: var(--radius);
             padding: 30px;
             box-shadow: var(--shadow);
+        }
+
+        .projects-bar h2,
+        .contact-box h2 {
+            margin: 0 0 16px;
+            color: var(--forest-dark);
+            font-size: 1.35rem;
+        }
+
+        .project-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .post {
@@ -267,12 +280,6 @@
             height: auto;
             border-radius: 10px;
             margin: 12px 0;
-        }
-
-        .contact-box h2 {
-            margin: 0 0 18px;
-            color: var(--forest-dark);
-            font-size: 1.4rem;
         }
 
         .contact-layout {
@@ -351,14 +358,43 @@
             display: none;
         }
 
+        .footer-note {
+            text-align: center;
+            padding: 22px 24px;
+            margin-top: 22px;
+        }
+
+        .footer-note p {
+            margin: 0;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            color: var(--forest-dark);
+            margin-bottom: 6px !important;
+        }
+
+        .footer-links {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .footer-links a {
+            color: var(--forest);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .footer-links a.amber-link {
+            color: var(--amber);
+        }
+
         @media (max-width: 820px) {
             .hero-card,
             .contact-layout,
-            .row-2 {
-                grid-template-columns: 1fr;
-            }
+            .row-2,
             .photo-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
             .hero-body,
             .panel {
@@ -372,7 +408,7 @@
     <header class="header">
         <div class="header-inner">
             <a href="ge.html" class="brand">
-                <img src="1000030936_2.jpg" alt="სტუმარ-მასპინძელი">
+                <img src="image-53.jpg" alt="სტუმარ-მასპინძელი">
                 <span>სტუმარ-მასპინძელი</span>
             </a>
             <nav class="nav" aria-label="ნავიგაცია">
@@ -380,7 +416,8 @@
                 <a href="index.html">ინგლისური</a>
                 <a href="ge.html" class="active">ქართული</a>
                 <a href="ar.html">არაბული</a>
-                <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener">სხვა ნაშრომები</a>
+                <a href="https://mediterraneanco-sketch.github.io/fawns-tale/" target="_blank" rel="noopener">Fawns Tale</a>
+                <a href="https://mediterraneanco-sketch.github.io/Khmelitsipeli/" target="_blank" rel="noopener">Khmelitsipeli</a>
                 <a href="#contact">კონტაქტი</a>
             </nav>
         </div>
@@ -393,22 +430,29 @@
                 <h1>სტუმარ-მასპინძელი</h1>
                 <div class="actions">
                     <a href="#text-feed" class="btn btn-primary">ტექსტის კითხვა</a>
-                    <a href="#contact" class="btn btn-amber">დაკავშირება</a>
-                    <a href="https://chargali-legacy.blogspot.com/?m=1" target="_blank" rel="noopener" class="btn btn-ghost">მთავარი გვერდი</a>
-                    <a href="https://chargalilegacy.github.io/" target="_blank" rel="noopener" class="btn btn-ghost">სხვა ნაშრომები</a>
+                    <a href="https://chargali-legacy.blogspot.com/?m=1" target="_blank" rel="noopener" class="btn btn-amber">მთავარი გვერდი</a>
+                    <a href="#contact" class="btn btn-ghost">კონტაქტი</a>
                 </div>
             </div>
             <div class="hero-photo">
-                <img src="1000022324_2.jpg" alt="სტუმარ-მასპინძელი">
+                <img src="1783170221180.png" alt="სტუმარ-მასპინძელი">
             </div>
         </section>
 
         <div class="photo-grid" aria-hidden="true">
-            <div class="photo-tile"><img src="1000022252_2.png" alt=""></div>
-            <div class="photo-tile"><img src="1000022260_2.png" alt=""></div>
-            <div class="photo-tile"><img src="1000022275.png" alt=""></div>
-            <div class="photo-tile"><img src="1000030936_2.jpg" alt=""></div>
+            <div class="photo-tile"><img src="1783170737976.png" alt=""></div>
+            <div class="photo-tile"><img src="file_000000003ed08246a7b71a0e8b4e0c7c.png" alt=""></div>
+            <div class="photo-tile"><img src="image-53.jpg" alt=""></div>
         </div>
+
+        <section class="panel projects-bar" aria-label="პროექტები">
+            <h2>პროექტები და გვერდები</h2>
+            <div class="project-buttons">
+                <a href="https://chargali-legacy.blogspot.com/?m=1" target="_blank" rel="noopener" class="btn btn-amber">მთავარი გვერდი</a>
+                <a href="https://mediterraneanco-sketch.github.io/fawns-tale/" target="_blank" rel="noopener" class="btn btn-primary">Fawns Tale</a>
+                <a href="https://mediterraneanco-sketch.github.io/Khmelitsipeli/" target="_blank" rel="noopener" class="btn btn-primary">Khmelitsipeli</a>
+            </div>
+        </section>
 
         <main class="panel" id="text-feed">
             <div id="posts">იტვირთება...</div>
@@ -433,7 +477,7 @@
                         <textarea id="cMessage" name="message" rows="4" required placeholder="დაწერეთ შეტყობინება..."></textarea>
                     </div>
                     <div class="actions">
-                        <button type="submit" class="btn btn-primary">გაგზავნა (chargalilegacy@gmail.com)</button>
+                        <button type="submit" class="btn btn-primary">გაგზავნა</button>
                     </div>
                     <div id="cNotice" class="notice" role="status"></div>
                 </form>
@@ -449,6 +493,15 @@
                 </aside>
             </div>
         </section>
+
+        <footer class="panel footer-note">
+            <p class="footer-title">შექმნილია Chargali Legacy-ის მიერ</p>
+            <p class="footer-links">
+                <a href="mailto:chargalilegacy@gmail.com">chargalilegacy@gmail.com</a>
+                &nbsp;·&nbsp;
+                <a href="https://chargali-legacy.blogspot.com/?m=1" target="_blank" rel="noopener" class="amber-link">მთავარი გვერდი</a>
+            </p>
+        </footer>
     </div>
 
     <script>
@@ -527,9 +580,4 @@
 
 </body>
 </html>
-```[cite: 5, 6, 7, 8, 9]
-
-### მნიშვნელოვანი შენიშვნა ფოტოებთან დაკავშირებით
-კოდში ჩასმულია თქვენ მიერ ბოლოს გამოგზავნილი ფაილების სახელები: `1000030936_2.jpg`, `1000022324_2.jpg`, `1000022252_2.png`, `1000022260_2.png` და `1000022275.png`[cite: 5, 6, 7, 8, 9]. GitHub-ში ატვირთვისას დარწმუნდით, რომ რეპოზიტორიუმში (`hg`) ზუსტად ამ სახელებით დევს ფაილები (ან თუ სხვა სახელით გაქვთ ატვირთული, `src="..."`-ში იგივე სახელი ჩაწერეთ).
-
-გსურთ იგივე სტილსა და კონტაქტზე (`chargalilegacy@gmail.com`) გადმოვიყვანოთ `index.html` და `ar.html` გვერდებიც?
+```[cite: 10]
